@@ -26,8 +26,8 @@
 
 ### How to Setup an Interface with DHCP by Editing the /etc/network/intefaces file
 
-> `auto <Interface>
-> allow-hotplug <Interface>
-> iface <Interface> inet dhcp`
+> `auto <Interface>  
+> allow-hotplug <Interface>  
+> iface <Interface> inet dhcp`  
 
 Where allow-hotplug will start the interface upon event detection.
