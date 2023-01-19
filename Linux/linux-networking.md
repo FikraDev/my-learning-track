@@ -46,9 +46,23 @@
 - One of the more notable changes with NetworkManager is instead of using `ifconfig` to get network information, we now invoke the IP utility and use `ip a`.
 - ***On Rhel derived linux variants, the NetworkManager stores new network profiles in keyfile format in the /etc/NetworkManager/system-connections/ directory.***
 
-### Configuring Network Settings With NetworkManager
+### Navigating NetworkManager
 
 - to check if NetworkManager is running on your system: `systemctl status NetworkManager`
 - to locate the network config files for NetworkManager: `cd /etc/NetworkManager`
 - to locate the connecting settings: `cd /etc/NetworkManager/system-connections`
+- to see a list of all network devices on a system: `nmcli device`
+- to see the properties of all network devices on a system: `nmcli device show`
+- to see the properties of an individual device on a system: `nmcli device show *deviceName*`
+- to see all existing connections: `nmcli connection`
+- to see the properties of a connection: `nmcli connection show *deviceName*`
+- to check network connectivity: `nmcli networking connectivity`
+  This will output one of five(5) results:
+  - **none**: the host is not connected to any network.
+  - **portal**: the host is behind a captive portal and cannot reach the full Internet.
+  - **limited**: the host is connected to a network, but it has no access to the Internet.
+  - **full**: the host is connected to a network and has full access to the Internet.
+  - **unknown**: the connectivity status cannot be found out.
+
+### Configuring Network Settings With NetworkManager
 
