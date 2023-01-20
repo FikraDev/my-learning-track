@@ -15,7 +15,7 @@
   - **/etc/nsswitch.conf** -  used to configure which services are to be used to determine information such as hostnames, password files, and group files.
   - **/etc/hosts** - this file contains the Internet Protocol (IP) host names and addresses for the local host and other hosts in the Internet network.  It is used to map hostnames to IP addresses.  It acts like a local DNS server.  It is located in the /etc directory which means that in order to edit it you have to use elevated privleges(sudo/root).
     - the first entries in the file are normally dedicated to the host machine.
-  - **/etc/hostname** - this is the local hostname configuration file.  It is used to configure the nameof the local system.
+  - **/etc/hostname** - this is the local hostname configuration file.  It is used to configure the name of the local system.
   - **/etc/sysconfig/network** - specifies routing and host information for all network interfaces. **(Rhel derived variants)**
   - **/etc/network/interfaces** - allows for the definition of static and dynamic IP addresses for the interfaces, setup routing information and default gateways, masquerading network bonding and more.
     - the default interfaces file will only have:
@@ -46,7 +46,7 @@
 - One of the more notable changes with NetworkManager is instead of using `ifconfig` to get network information, we now invoke the IP utility and use `ip a`.
 - ***On Rhel derived linux variants, the NetworkManager stores new network profiles in keyfile format in the /etc/NetworkManager/system-connections/ directory.***
 
-### Navigating NetworkManager
+## Navigating NetworkManager
 
 - to check if NetworkManager is running on your system: `systemctl status NetworkManager`
 - to locate the network config files for NetworkManager: `cd /etc/NetworkManager`
@@ -64,5 +64,32 @@
   - **full**: the host is connected to a network and has full access to the Internet.
   - **unknown**: the connectivity status cannot be found out.
 
-### Configuring Network Settings With NetworkManager
+## Configuring Network Settings With NetworkManager
 
+### Configure Network Adapter with Dyamic IP
+
+`sudo nmcli connection add type ethernet ifname *yourInterfaceName* con-name *giveconnectionaname*`
+
+### Configure Network Adapter with Static IP
+
+`nmcli connection add type ethernet ifname *yourInterfaceName* con-name *giveconnectionaname* ip4 192.168.100.69/24 gw4 192.168.100.1`
+
+### Modifying a Connection
+
+`sudo nmcli connection modify *connectionname* ipv4.DNS 8.8.8.8`
+
+### Enabling a connection
+
+`nmcli connection up connectionname`
+
+### Disabling a connection
+
+`nmcli connection down connectionname`
+
+## Other Network Commands
+
+**netstat**:  stands for Network statistics. It displays information about different interface statistics, including open sockets, routing tables, and connection information. Further, it can be used to displays all the socket connections (including TCP, UDP). Apart from connected sockets, it also displays the sockets that are pending for connections. It is a handy tool for network and system administrators.  *use "man netstat" for more information*
+
+**tcpdump** - prints out a description of the contents of packets on a network interface.  It is used to monitor traffic on a particular interface going in both directions.
+
+The syntax to run tcpdump is: `tcpdump -i interfaceName`
