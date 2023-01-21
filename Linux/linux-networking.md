@@ -90,6 +90,20 @@
 
 **netstat**:  stands for Network statistics. It displays information about different interface statistics, including open sockets, routing tables, and connection information. Further, it can be used to displays all the socket connections (including TCP, UDP). Apart from connected sockets, it also displays the sockets that are pending for connections. It is a handy tool for network and system administrators.  *use "man netstat" for more information*
 
-**tcpdump** - prints out a description of the contents of packets on a network interface.  It is used to monitor traffic on a particular interface going in both directions.
+**tcpdump**: prints out a description of the contents of packets on a network interface.  It is used to monitor traffic on a particular interface going in both directions.
 
 The syntax to run tcpdump is: `tcpdump -i interfaceName`
+
+**ethtool**: used to provide information about the network interface cards on your linux device.  In order to use this command you must first know the names of the interface cards in your device which can be found using - `ip a`.
+
+The syntax for using ethtool is: `ethtool interfaceName` eg: `ethtool ens18`.
+
+*Note*: the lo interface is a special interface that is a computer uses to communicate with itself and is mainly used for diagnostics and troubleshooting.
+
+Check man pages for more options with ethtool.
+
+**NIC Bonding**: also known as network bonding, is defined as the aggregation or combination of multiple NICs into a single bond interface providing HA and redundancy.
+
+**wget**: used to download files and applications.  
+
+- The syntax to use this command is `wget http://full-url`
