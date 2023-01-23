@@ -88,13 +88,13 @@
 
 ## Other Network Commands
 
-**netstat**:  stands for Network statistics. It displays information about different interface statistics, including open sockets, routing tables, and connection information. Further, it can be used to displays all the socket connections (including TCP, UDP). Apart from connected sockets, it also displays the sockets that are pending for connections. It is a handy tool for network and system administrators.  *use "man netstat" for more information*
+- **netstat**:  stands for Network statistics. It displays information about different interface statistics, including open sockets, routing tables, and connection information. Further, it can be used to displays all the socket connections (including TCP, UDP). Apart from connected sockets, it also displays the sockets that are pending for connections. It is a handy tool for network and system administrators.  *use "man netstat" for more information*
 
-**tcpdump**: prints out a description of the contents of packets on a network interface.  It is used to monitor traffic on a particular interface going in both directions.
+- **tcpdump**: prints out a description of the contents of packets on a network interface.  It is used to monitor traffic on a particular interface going in both directions.
 
 The syntax to run tcpdump is: `tcpdump -i interfaceName`
 
-**ethtool**: used to provide information about the network interface cards on your linux device.  In order to use this command you must first know the names of the interface cards in your device which can be found using - `ip a`.
+- **ethtool**: used to provide information about the network interface cards on your linux device.  In order to use this command you must first know the names of the interface cards in your device which can be found using - `ip a`.
 
 The syntax for using ethtool is: `ethtool interfaceName` eg: `ethtool ens18`.
 
@@ -102,8 +102,20 @@ The syntax for using ethtool is: `ethtool interfaceName` eg: `ethtool ens18`.
 
 Check man pages for more options with ethtool.
 
-**NIC Bonding**: also known as network bonding, is defined as the aggregation or combination of multiple NICs into a single bond interface providing HA and redundancy.
+- **NIC Bonding**: also known as network bonding, is defined as the aggregation or combination of multiple NICs into a single bond interface providing HA and redundancy.
 
-**wget**: used to download files and applications.  
+- **wget**: used to download files and applications.  
 
-- The syntax to use this command is `wget http://full-url`
+  - The syntax to use this command is `wget http://full-url`
+
+**curl**:  curl  is  a  tool for transferring data from or to a server.  If not told otherwise, curl writes the received data to stdout. It can be  instructed to  instead save that data into a local file, using the -o, --output or -O, --remote- name options.
+
+  The syntax for the curl command is `curl option url`
+
+  curl can also be used to test if a website is up by using the address of the website.  If after running the curl command you are presented with html coding for the webpge it means the website is up and running.  In which case it will return: `curl: (6) Could not resolve .....`.
+
+**ping**: the ping command is used to test if a host is reachable.
+
+  The syntax for the ping command is `ping option host(url or IP)`
+
+**ftp**:  allows a user to transfer files to and from a remote network site.
