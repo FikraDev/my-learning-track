@@ -118,4 +118,48 @@
 
   - The syntax for the ping command is `ping option host(url or IP)`
 
-- **ftp**:  allows a user to transfer files to and from a remote network site.
+- **ftp**:  allows a user to transfer files to and from a remote network server.
+
+  - both the source server and the destination server should be running the ftp daemon, vsftpd
+
+  - Syntax for ftp:
+  
+  > `ftp remoteServerAddress`.  This will prompt for a username and password.
+  > After the credentials have been added, to transfer a file type: `put filename`
+  > To exit: `bye`
+
+- **scp**: used copy files between hosts on a network.  It uses ssh(1) for data transfer, and uses the same authentication and provides the same security as a login
+session. It will ask for passwords or passphrases if they are needed for authentication.
+
+  - The syntax for using scp is: `scp fileToTransfer destinationServer:/copy_to_location/on/destinationServer`
+
+- **rsync**: fast and extraordinarily versatile file copying tool.  It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon.  
+It offers a large number of options that control every aspect of its behavior and permit very flexible specification of the set of files to be copied.
+
+  - The syntax for rsync when pulling a file via remote shell is: `rsync [OPTION...] [USER@]HOST:SRC... [DEST]`
+  - The syntax for rysnc when pushing a file via remote shell is: `rsync [OPTION...] SRC... [USER@]HOST:DEST`
+
+## Package Management in Ubuntu and Other Debian Derived Distros
+
+- Ubuntu’s package management system is derived from the same system used by the Debian GNU/Linux distribution. The package files contain all of the necessary files, meta-data, and instructions to implement a particular functionality or software application on your Ubuntu computer.
+
+- Debian package files typically have the extension `.deb`, and usually exist in repositories which are collections of packages found online.  Many packages use dependencies. Dependencies are additional packages required by the principal package in order to function properly.
+
+- The apt command is a powerful command-line tool, which works with Ubuntu’s Advanced Packaging Tool (APT) performing such functions as installation of new software packages, upgrade of existing software packages, updating of the package list index, and even upgrading the entire Ubuntu system.
+
+  - To install a package: `sudo apt install packageName`
+  - To remove a package: `sudo apt remove packageName` (**To remove multiple packages, seperate them by spaces**)
+  - To remove a package and its config files: `sudo apt remove --purge packageName`.
+  - To update the package index: `sudo apt update`. The APT package index is essentially a database of available packages from the repositories defined in the `/etc/apt/sources.list` file and in the `/etc/apt/sources.list.d` directory.
+  - To upgrade packages: `sudo apt upgrade`
+  - ***Note***: Actions of the apt command, such as installation and removal of packages, are logged in the `/var/log/dpkg.log` log file.
+
+### dpkg
+
+- dpkg is a package manager for Debian-based systems. It can install, remove, and build packages, but unlike other package management systems, it cannot automatically download and install packages or their dependencies. ***Apt and Aptitude are newer, and layer additional features on top of dpkg.***
+
+  - To list all packages in the system’s package database: `dpg -l`
+  - To list the files installed by a particular package: `dpkg -L packageName`
+  - To find out which package installed a file: `dpkg -S /path/filename.extension`
+  - To install a local *.deb* file: `sudo dpkg -i file.deb`
+  
