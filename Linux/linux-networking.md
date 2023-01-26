@@ -193,7 +193,20 @@ It offers a large number of options that control every aspect of its behavior an
   - To find out which package installed a file: `dpkg -S /path/filename.extension`
   - To install a local *.deb* file: `sudo dpkg -i file.deb`
   
-## DNS
+## Services
+
+### DNS
 
 - DNS = Domain Name System. The purpose of DNS is to translate IP addresses to human readable domain names.
 - In ubuntu and other debian derived distros the DNS config file is `/etc/bind/named.conf`.
+
+### NTP
+
+- Network Time Protocol is used for time synchronization.
+- To install the service: `sudo apt install ntp`
+- Location of config file: `/etc/ntp.conf`
+- To start the service: `sytstemctl start ntpd`
+- Allow connections through firewall: `sudo ufw allow from any to any port 123 proto udp`
+- To query the ntp servers running on a server: `ntpq`.  ntpq ,operates in interactive mode and takes arguments such as -p to show all peers.
+- To stop the service: `systemctl stop ntpd`
+
