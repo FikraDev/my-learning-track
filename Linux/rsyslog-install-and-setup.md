@@ -69,9 +69,20 @@
 
 - **Verify logs are working**:
   - Login into the syslog server and verify the clients allowed to send logs to it:
-    `sudo ls -1 /var/log/remotelogs/`
+    ```sudo ls -1 /var/log/remotelogs/```
   
   - To see the logs sent by a particular server:
     `sudo ls -1 /var/log/remotelogs/client_pc_IP/`
+
+- Some standard log files are:
+
+  - auth,authpriv.*
+  - *.*;auth,authpriv.none
+  - #cron.*
+  - daemon.*
+  - kern.*
+  - lpr.*
+  - mail.*
+  - user.*
   
 ***Credit: steps here taken from article "https://kifarunix.com/install-and-setup-rsyslog-server-on-ubuntu/"***
