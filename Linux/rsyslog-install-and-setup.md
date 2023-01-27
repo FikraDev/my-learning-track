@@ -55,12 +55,14 @@
 
 - As a cushion just in case the remote rsyslog server goes down and your logs are so important you don’t want to loose, set the rsyslog disk queue for buffering in the rsyslog configuration file as shown below:
 
+  ```bash
   #Define Disk Queue Buffer in case the server goes down
   $ActionQueueFileName queue # define a file name for disk assistance.
   $ActionQueueMaxDiskSpace 1g  # The maximum size that all queue files together will use on disk.
   $ActionQueueSaveOnShutdown on  # specifies that data should be saved at shutdown
   $ActionQueueType LinkedList  # holds enqueued messages in memory which makes the process very fast.
   $ActionResumeRetryCount -1  # prevents rsyslog from dropping messages when retrying to connect if server is not responding
+  ```
 
 - Once done, restart the service on the client:
   `systemctl restart rsyslog`
@@ -72,5 +74,4 @@
   - To see the logs sent by a particular server:
     `sudo ls -1 /var/log/remotelogs/client_pc_IP/`
   
-
-  ***Credit: steps here taken from article "https://kifarunix.com/install-and-setup-rsyslog-server-on-ubuntu/"***
+***Credit: steps here taken from article "https://kifarunix.com/install-and-setup-rsyslog-server-on-ubuntu/"***
