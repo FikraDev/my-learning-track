@@ -34,3 +34,5 @@ These are the steps that should be taken after a linux server installation:
   - To make the firewall allow connections for an application: `sudo ufw allow appName`
   - To check firewall status: `sudo ufw status`
   - To enable firewall: `sudo ufw enable`
+
+- ***Important***: when the firewall is enabled, you will have to explicitly allow ssh through using: `sudo ufw allow ssh`
