@@ -168,6 +168,9 @@ It offers a large number of options that control every aspect of its behavior an
 
   - By adding `any` to the end of the command, The system will list all google.com DNS records that it finds, along with the IP addresses.
 
+**traceroute** - used to map the route a packet takes from source to destination.  It is often used to diagnose network issues.  Each hop represents a new server or router that the packet passes through. It can also help you to determine where there might be a slow connection along the path.
+
+- The syntax for using traceroute is: `traceroute address/ipaddress`
 
 ## Package Management in Ubuntu and Other Debian Derived Distros
 
