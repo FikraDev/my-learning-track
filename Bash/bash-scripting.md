@@ -521,3 +521,44 @@ and ‘**S’:**
 ## Sleep Command
 
 - When you want to pause the execution of any command for specific period of time then you can use **sleep** command. You can set the delay amount by **seconds (s), minutes (m), hours (h) and days (d).**
+
+## Reading File Contents
+
+- There are many ways to read file contents in Bash. One of the easiest ways is to use a while loop:
+- **Option 1:**
+
+    ```bash
+    while read variableName_to_store_content
+    do
+        echo $variableName
+    done < file_to_read
+    ```
+
+- **Option 2:**
+
+    ```bash
+    cat file_to_read | while read variableName
+    do
+        echo $variableName
+    done
+    ```
+
+- **Option 3:**:
+
+    ```bash
+    while IFS= read -r line
+    do
+        echo $line
+    done < file_to_read
+    ```
+
+## Until Loop
+
+The syntax for the until loop is:
+
+```bash
+until [ command ]
+do
+    code to be executed
+done
+```
