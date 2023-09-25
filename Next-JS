@@ -1,0 +1,26 @@
+# How to Create a NextJS  App
+
+## Installation
+
+- Create a project folder
+- CD into the project folder
+- Run the following command to setup the project structure **`npx create-next-app@latest ./`**.
+- Follow the on screen instructions
+- If tailwind was not installed during the installation, install it using the guide on the official website.
+
+## The App Folder
+
+- The most important folder in the application is the `app` folder.
+- inside of the app folder your will see a number of files.  Take note of the pages.js, layout.js and the globals.css files.
+- The layout.js file is the entry point into a next.js application and as such, any code written inside of it will reflect on every page within your application.
+- page.js file is the basically the homepage (/) of the application.  What you see there is what you will see when you visit the homepage of the application.
+- All components created in the app folder are react server components
+- Only place pages & layouts in the app folder.  Components should be placed in a components folder in the root of the directory.
+
+## Routing
+
+- Next.JS uses a file system based router.
+- Folders are used to define routes. ie each folder is the route you want to define.
+- A route is a single path of nested folders
+- Each folder must contain a **`page.js`** file which will contain the code for the content that is to be routed at that path.
+- A folder without a page.js file will have its URL path not being publicly available.  It may however, be used to store images, components, stylesheets etc.
